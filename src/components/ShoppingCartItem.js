@@ -6,7 +6,7 @@ class ShoppingCartItem extends Component {
   }
 
   render() {
-    const { img, title, price, handleChange, handleRemove } = this.props;
+    const { id, img, title, price, quantity, handleChange, handleRemove } = this.props;
 
     return (
       <div className="col shopping__cart__item">
@@ -33,7 +33,9 @@ class ShoppingCartItem extends Component {
                       <div className="col col-6 col-lg-4">
                         <select
                           className="custom-select"
-                          onChange={handleChange}
+                          onChange= {handleChange}
+                          value={quantity}
+                          id={id}
                         >
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -51,7 +53,7 @@ class ShoppingCartItem extends Component {
                         <button
                           type="btn"
                           className="btn btn-dark"
-                          onClick={handleRemove}
+                          onClick={ () => handleRemove(id) }
                         >
                           Remove
                         </button>
